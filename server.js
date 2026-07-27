@@ -1,7 +1,7 @@
 const http = require('http');
 
 const APP_NAME = 'app-ejemplo-evaluacion';
-const APP_VERSION = '2.0.0';
+const APP_VERSION = '1.0.0';
 
 function requestHandler(req, res) {
   if (req.url === '/' || req.url === '/health') {
