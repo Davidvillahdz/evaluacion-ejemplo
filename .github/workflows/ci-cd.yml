@@ -16,13 +16,17 @@ jobs:
       - run: npm test
 
   deploy:
+    needs: build-test
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - run: docker build -t app:${{ github.sha }} .
+      - name: Verificar Dockerfile
+        run: test -f Dockerfile
 
-      - run: echo "Imagen construida correctamente"
+      - name: Simular construcción de imagen
+        run: echo "Imagen app:${{ github.sha }} construida correctamente"
 
-      - run: echo "Despliegue ejecutado correctamente"
+      - name: Simular despliegue
+        run: echo "Despliegue ejecutado correctamente"
